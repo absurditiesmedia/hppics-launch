@@ -9,7 +9,8 @@ import Card from "@components/Card";
 import Socials from "@components/Socials.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import { SOCIALS } from "@config";
-
+import { Image } from "astro:assets";
+import btcAddress from "../assets/images/btcaddress.png";
 const posts = await getCollection("blog");
 
 const sortedPosts = getSortedPosts(posts);
@@ -23,7 +24,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   <Header />
   <main id="main-content">
     <section id="hero">
-      <h1>Mingalaba</h1>
+      <h1>Kinkshaming is my kink</h1>
       <a
         target="_blank"
         href="/rss.xml"
@@ -42,19 +43,20 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       </a>
 
       <p>
-        AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro
-        blog theme. This theme follows best practices and provides accessibility
-        out of the box. Light and dark mode are supported by default. Moreover,
-        additional color schemes can also be configured.
+        Wecome to our site. Don't forget to send us money.
+        <Image
+          src={btcAddress}
+          alt="BTC:bc1qvfkd32mgn36uspflzvelqyvwcndj4xhqyzp24m"
+        />
+        BTC: bc1qvfkd32mgn36uspflzvelqyvwcndj4xhqyzp24m
       </p>
       <p>
-        Read the blog posts or check
         <LinkButton
           className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
-          href="https://github.com/satnaing/astro-paper#readme"
+          href="/posts/"
         >
-          README
-        </LinkButton> for more info.
+          READ OUR BLOG / VIEW OUR PICS
+        </LinkButton>
       </p>
       {
         // only display if at least one social link is enabled
