@@ -32,9 +32,9 @@ export const SOCIALS: SocialObjects = [
   },
   {
     name: "Linktree",
-    href: "https://hp.pics#linktr.ee/COMINGSOON",
+    href: "https://linktr.ee/lilitholivia",
     linkTitle: `${SITE.title} on Linktr.ee`,
-    active: false,
+    active: true,
   },
   {
     name: "Mastodon",
@@ -46,13 +46,13 @@ export const SOCIALS: SocialObjects = [
     name: "Instagram",
     href: "https://hp.pics#instagram.com/COMINGSOON",
     linkTitle: `${SITE.title} on Instagram`,
-    active: true,
+    active: false,
   },
   {
     name: "Twitter",
-    href: "https://hp.pics#twitter.com/COMINGSOON",
+    href: "https://x.com/lilitholiviax",
     linkTitle: `${SITE.title} on Twitter`,
-    active: false,
+    active: true,
   },
   {
     name: "Mail",
