@@ -2,9 +2,9 @@ import type { Site, SocialObjects } from "./types";
 
 export const SITE: Site = {
   website: "https://hp.pics/", // replace this with your deployed domain
-  author: "Ecstatic Wonder",
-  desc: "Forever in awe of the vastness of existence",
-  title: "Ecstatic Wonder",
+  author: "Mistress Olivia",
+  desc: "Forever in awe of the vastness of existence, and how lame you are.",
+  title: "Eternal Suffering of Your Pathetic Life",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: false,
   postPerPage: 3,
