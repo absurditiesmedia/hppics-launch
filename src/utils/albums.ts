@@ -1,7 +1,7 @@
 const getAlbumImages = async ({ data }: CollectionEntry<"albums">) => {
   // 1. List all album files from collections path
   let images = import.meta.glob<{ default: ImageMetadata }>(
-    "/src/content/albums/**/*.{jpeg,jpg,png,webp}"
+    "/src/content/albums/**/*.{jpeg,jpg,png,webp,gif,JPG,JPEG,PNG,WEBP,GIF}"
   );
   console.log(data);
   // 2. Filter images by albumId

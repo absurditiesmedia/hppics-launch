@@ -1,0 +1,11 @@
+author: "Mistress Olivia X"
+pubDatetime: 2024-01-23T15:22:00Z
+modDatetime: 2024-02-21T09:12:47.400Z
+title: "Sample Album"
+description: "This is an album of random pictures to launch the site with"
+featured: true
+draft: false
+tags: ['Photography', 'People']
+cover: './sample-album/cover.png'
+canonicalURL: 'https://hp.pics/albums/sample-album/'
+slug: 'sample-album'
