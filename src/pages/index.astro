@@ -10,7 +10,7 @@ import Socials from "@components/Socials.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import { SOCIALS } from "@config";
 import { Image } from "astro:assets";
-import btcAddress from "../assets/images/btcaddress.png";
+import btcAddress from "../assets/images/bc1qvfkd32mgn36uspflzvelqyvwcndj4xhqyzp24m.png";
 const posts = await getCollection("blog");
 
 const sortedPosts = getSortedPosts(posts);
@@ -45,8 +45,9 @@ const socialCount = SOCIALS.filter(social => social.active).length;
     <section>
       <p>
         <div style="float:right; margin: 10px 5px 5px;">
-          <img
-            src="/assets/images/bc1qvfkd32mgn36uspflzvelqyvwcndj4xhqyzp24m.png"
+          <Image
+            src={btcAddress}
+            alt="BTC:bc1qvfkd32mgn36uspflzvelqyvwcndj4xhqyzp24m"
           />
         </div>
         You're a fucking joke. Look at yourself. That's right. We're laughing at
@@ -74,7 +75,14 @@ const socialCount = SOCIALS.filter(social => social.active).length;
           className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
           href="/posts/"
         >
-          READ OUR BLOG / VIEW OUR PICS
+          READ OUR BLOG
+        </LinkButton>
+        |
+        <LinkButton
+          className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
+          href="/albums/"
+        >
+          VIEW OUR PICS
         </LinkButton>
       </p>
       <p></p>
