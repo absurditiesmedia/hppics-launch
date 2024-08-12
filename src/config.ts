@@ -32,7 +32,7 @@ export const SOCIALS: SocialObjects = [
   },
   {
     name: "Linktree",
-    href: "https://linktr.ee/lilitholivia",
+    href: "https://linktr.ee/sorceressdeidre",
     linkTitle: `${SITE.title} on Linktr.ee`,
     active: true,
   },
@@ -44,13 +44,13 @@ export const SOCIALS: SocialObjects = [
   },
   {
     name: "Instagram",
-    href: "https://hp.pics#instagram.com/COMINGSOON",
+    href: "https://instagram.com/sorceressdeidre",
     linkTitle: `${SITE.title} on Instagram`,
-    active: false,
+    active: true,
   },
   {
     name: "Twitter",
-    href: "https://x.com/lilitholiviax",
+    href: "https://x.com/sorceressde",
     linkTitle: `${SITE.title} on Twitter`,
     active: true,
   },

@@ -8,14 +8,21 @@ import Hr from "@components/Hr.astro";
 import Card from "@components/Card";
 import Socials from "@components/Socials.astro";
 import getSortedPosts from "@utils/getSortedPosts";
+import getSortedAlbums from "@utils/getSortedAlbums";
 import { SOCIALS } from "@config";
 import { Image } from "astro:assets";
 import btcAddress from "../assets/images/bc1qvfkd32mgn36uspflzvelqyvwcndj4xhqyzp24m.png";
 const posts = await getCollection("blog");
-
 const sortedPosts = getSortedPosts(posts);
+const albums = await getCollection("albums");
+const sortedAlbums = getSortedAlbums(albums);
+
+const sortedAll = [...sortedPosts, ...sortedAlbums];
+
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
+const featuredAll = sortedAll.filter(({ data }) => data.featured);
+const recentAll = sortedAll.filter(({ data }) => !data.featured);
 
 const socialCount = SOCIALS.filter(social => social.active).length;
 ---
@@ -107,7 +114,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       <section id="featured">
         <h2>Featured</h2>
         <ul>
-          {featuredPosts.map(({ data, slug }) => (
+          {featuredAll.map(({ data, slug }) => (
             <Card
               href={`/posts/${slug}/`}
               frontmatter={data}
@@ -126,7 +133,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
     <section id="recent-posts">
       <h2>Recent Posts</h2>
       <ul>
-        {recentPosts.map(
+        {recentAll.map(
           ({ data, slug }, index) =>
             index < 4 && (
               <Card
