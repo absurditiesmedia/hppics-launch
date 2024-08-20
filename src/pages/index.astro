@@ -21,8 +21,8 @@ const sortedAll = [...sortedPosts, ...sortedAlbums];
 
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
-const featuredAll = sortedAll.filter(({ data }) => data.featured);
-const recentAll = sortedAll.filter(({ data }) => !data.featured);
+const featuredAlbums = sortedAlbums.filter(({ data }) => data.featured);
+const recentAlbums = sortedAlbums.filter(({ data }) => !data.featured);
 
 const socialCount = SOCIALS.filter(social => social.active).length;
 ---
@@ -103,61 +103,110 @@ const socialCount = SOCIALS.filter(social => social.active).length;
         )
       }
     </section>
+
+    {
+      featuredPosts.length > 0 && (
+        <>
+          <section id="featured">
+            <h2>Featured Posts</h2>
+            <ul>
+              {featuredPosts.map(({ data, slug }) => (
+                <Card
+                  href={`/posts/${slug}/`}
+                  frontmatter={data}
+                  secHeading={false}
+                />
+              ))}
+            </ul>
+          </section>
+          {recentPosts.length > 0 && <Hr />}
+        </>
+      )
+    }
+
+    {
+      recentPosts.length > 0 && (
+        <section id="recent-posts">
+          <h2>Recent Posts</h2>
+          <ul>
+            {recentPosts.map(
+              ({ data, slug }, index) =>
+                index < 4 && (
+                  <Card
+                    href={`/posts/${slug}/`}
+                    frontmatter={data}
+                    secHeading={false}
+                  />
+                )
+            )}
+          </ul>
+        </section>
+      )
+    }
+
+    <div class="all-posts-btn-wrapper">
+      <LinkButton href="/posts/">
+        All Posts
+        <svg xmlns="http://www.w3.org/2000/svg"
+          ><path
+            d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"
+          ></path>
+        </svg>
+      </LinkButton>
+    </div>
+
+    {
+      featuredAlbums.length > 0 && (
+        <>
+          <section id="featured">
+            <h2>Featured Albums</h2>
+            <ul>
+              {featuredAlbums.map(({ data, slug }) => (
+                <Card
+                  href={`/albums/${data.slug}/`}
+                  frontmatter={data}
+                  secHeading={false}
+                />
+              ))}
+            </ul>
+          </section>
+          {recentAlbums.length > 0 && <Hr />}
+        </>
+      )
+    }
+
+    {
+      recentAlbums.length > 0 && (
+        <section id="recent-posts">
+          <h2>Recent Albums</h2>
+          <ul>
+            {recentAlbums.map(
+              ({ data, slug }, index) =>
+                index < 4 && (
+                  <Card
+                    href={`/albums/${data.slug}/`}
+                    frontmatter={data}
+                    secHeading={false}
+                  />
+                )
+            )}
+          </ul>
+        </section>
+      )
+    }
+
+    <div class="all-posts-btn-wrapper">
+      <LinkButton href="/albums/">
+        All Albums
+        <svg xmlns="http://www.w3.org/2000/svg"
+          ><path
+            d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"
+          ></path>
+        </svg>
+      </LinkButton>
+    </div>
   </main>
 </Layout>
-
-<Hr />
-
-{
-  featuredPosts.length > 0 && (
-    <>
-      <section id="featured">
-        <h2>Featured</h2>
-        <ul>
-          {featuredAll.map(({ data, slug }) => (
-            <Card
-              href={`/posts/${slug}/`}
-              frontmatter={data}
-              secHeading={false}
-            />
-          ))}
-        </ul>
-      </section>
-      {recentPosts.length > 0 && <Hr />}
-    </>
-  )
-}
-
-{
-  recentPosts.length > 0 && (
-    <section id="recent-posts">
-      <h2>Recent Posts</h2>
-      <ul>
-        {recentAll.map(
-          ({ data, slug }, index) =>
-            index < 4 && (
-              <Card
-                href={`/posts/${slug}/`}
-                frontmatter={data}
-                secHeading={false}
-              />
-            )
-        )}
-      </ul>
-    </section>
-  )
-}
-
-<div class="all-posts-btn-wrapper">
-  <LinkButton href="/posts/">
-    All Posts
-    <svg xmlns="http://www.w3.org/2000/svg"
-      ><path
-        d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"
-      ></path>
-    </svg>
-  </LinkButton>
-</div>
 
 <Footer />
 
